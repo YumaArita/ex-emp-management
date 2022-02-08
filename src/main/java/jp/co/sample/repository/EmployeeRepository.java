@@ -34,17 +34,19 @@ public class EmployeeRepository {
 	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = new BeanPropertyRowMapper<>(Employee.class);
 	
 	public List<Employee> findAll(){
-		String findASql ="SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employee ORDER BY hire_date DESC";
+		String findASql ="SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employees ORDER BY hire_date DESC";
 		List<Employee> employeeList
-		= template.query(findASql, EMPLOYEE_ROW_MAPPER); if (employeeList.size() == 0) {
-		return Collections.EMPTY_LIST; }
-		return (List<Employee>) employeeList.get(0);
+		= template.query(findASql, EMPLOYEE_ROW_MAPPER); 
+		return employeeList;
+//		if (employeeList.size() == 0) {
+//		return Collections.EMPTY_LIST; }
+//		return (List<Employee>) employeeList.get(0);
 	}
 	
 	public Employee load(Integer id) {
 		String loadSql = "SELECT id,name,image,gender,hire_date,mail_address,"
 				+ " zip_code,address,telephone,salary,characteristics,dependents_count "
-				+ " FROM employee WHERE id=:id";
+				+ " FROM employees WHERE id=:id";
 //		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id",id);
 		Employee employee = template.queryForObject(loadSql, param, EMPLOYEE_ROW_MAPPER);
