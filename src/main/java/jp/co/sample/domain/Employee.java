@@ -24,6 +24,8 @@ public class Employee {
 	
 	private String name;
 	
+    private String gender;
+	
 	private String image;
 
 	private java.util.Date hireDate;
@@ -56,6 +58,14 @@ public class Employee {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getImage() {
@@ -132,11 +142,10 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", hireDate=" + hireDate
-				+ ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address + ", telephone="
-				+ telephone + ", salary=" + salary + ", characteristics=" + characteristics + ", dependentsCount="
-				+ dependentsCount + "]";
+		return "Employee [id=" + id + ", name=" + name + ", gender=" + gender + ", image=" + image + ", hireDate="
+				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
+				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
+				+ ", dependentsCount=" + dependentsCount + "]";
 	}
-
 	
 }

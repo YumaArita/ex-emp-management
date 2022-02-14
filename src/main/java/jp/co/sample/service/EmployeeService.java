@@ -23,8 +23,12 @@ public class EmployeeService {
 		
 	}	
 	
-	public Employee showDtail(Integer id) {
+	public Employee showDetail(Integer id) {
 		return employeeRepository.load(id);
+	}
+	
+	public void update(Employee employee) {
+		employeeRepository.update(employee);
 	}
 
 }
